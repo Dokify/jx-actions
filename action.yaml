@@ -1,0 +1,9 @@
+name: "JXActions"
+description: "Jenkins X GitHub Actions"
+author: "dokify"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+branding:
+  icon: "copy"
+  color: "green"
