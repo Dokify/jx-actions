@@ -11,7 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      DOCKER_IMAGE: dokify/jx-actions
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -36,4 +35,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ steps.release.outputs.tag }}
+          tags: dokify/jx-actions:${{ steps.release.outputs.tag }}
