@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsxio/builder-jx:2.1.155-778 as jx-builder
+FROM ghcr.io/jenkins-x/builder-go:2.1.155-778-patch3 as jx-builder
 FROM google/cloud-sdk:slim
 
 COPY --from=jx-builder /usr/bin/jx /usr/bin/jx
