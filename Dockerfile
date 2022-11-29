@@ -1,5 +1,5 @@
 FROM ghcr.io/jenkins-x/builder-go:2.1.155-778-patch3 as jx-builder
-FROM google/cloud-sdk:slim
+FROM google/cloud-sdk:398.0.0-slim
 
 COPY --from=jx-builder /usr/bin/jx /usr/bin/jx
 
