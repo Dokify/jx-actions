@@ -6,7 +6,8 @@ COPY --from=jx-builder /usr/bin/jx /usr/bin/jx
 RUN curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl" && \
     chmod +x kubectl && \
     mv kubectl /usr/local/bin/ && \
-    apt update && apt-get install -y git google-cloud-sdk-gke-gcloud-auth-plugin && rm -rf /var/lib/apt/lists/*
+    apt update && apt-get install -y git google-cloud-sdk-gke-gcloud-auth-plugin && rm -rf /var/lib/apt/lists/* && \
+    git config --global credential.helper '!f() { sleep 1; echo "username=${GITHUB_USERNAME}"; echo "password=${GITHUB_TOKEN}"; }; f'
 
 ENV GOOGLE_APPLICATION_CREDENTIALS /root/.config/gcloud/application_default_credentials.json
 
