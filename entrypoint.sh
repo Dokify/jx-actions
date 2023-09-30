@@ -12,6 +12,8 @@ gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS
 gcloud config set project "${GCP_PROJECT}"
 gcloud container clusters get-credentials "${GCP_CLUSTER}" --zone="${GCP_ZONE}"
 
+git config --global credential.helper '!f() { sleep 1; echo "username=${GITHUB_USERNAME}"; echo "password=${GITHUB_TOKEN}"; }; f'
+
 kubectl config set-context --current --namespace=jx
 
 exec "$@"
