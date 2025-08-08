@@ -1,4 +1,4 @@
-FROM ghcr.io/jenkins-x/jx-boot:3.10.115 as jx-builder
+FROM ghcr.io/jenkins-x/jx-boot:3.11.107 as jx-builder
 FROM google/cloud-sdk:448.0.0-slim
 
 COPY --from=jx-builder /usr/bin/jx /usr/bin/jx
