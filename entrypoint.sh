@@ -8,7 +8,7 @@ if [[ "${GOOGLE_APPLICATION_CREDENTIALS_BASE64}" ]]; then
   echo -n ${GOOGLE_APPLICATION_CREDENTIALS_BASE64}|base64 -d > "${GOOGLE_APPLICATION_CREDENTIALS}"
 fi
 
-sex -x
+set -x
 gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}
 gcloud config set project "${GCP_PROJECT}"
 gcloud container clusters get-credentials "${GCP_CLUSTER}" --zone="${GCP_ZONE}"
