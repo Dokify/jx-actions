@@ -13,6 +13,7 @@ gcloud config set project "${GCP_PROJECT}"
 gcloud container clusters get-credentials "${GCP_CLUSTER}" --zone="${GCP_ZONE}"
 
 git config --global credential.helper '!f() { sleep 1; echo "username=${GITHUB_USERNAME}"; echo "password=${GITHUB_TOKEN}"; }; f'
+git config --global --add safe.directory .
 
 kubectl config set-context --current --namespace=jx
 
